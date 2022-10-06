@@ -4,11 +4,11 @@
 782 -> 8
 918 -> 1 */
 
-int rand;
+int a;
 
-rand = new Random().Next(100, 1000);
+a = new Random().Next(100, 1000);
 
-Console.WriteLine(rand);
+Console.WriteLine(a);
 
-Console.WriteLine($"Вторая цифра {rand / 10 % 10}");
+Console.WriteLine($"Вторая цифра {a / 10 % 10}");
 
