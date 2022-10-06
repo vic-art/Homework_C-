@@ -1,14 +1,41 @@
-﻿/* Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на 
-выходе показывает вторую цифру этого числа.
-456 -> 5
-782 -> 8
-918 -> 1 */
+﻿/* Задача 13: Напишите программу, которая выводит третью цифру заданного числа или 
+сообщает, что третьей цифры нет.
+
+645 -> 5
+78 -> третьей цифры нет
+32679 -> 6 */
 
 int rand;
+rand = new Random().Next();
+int temp = rand;
+int numDigits = 0;
+int thirdDigit;
 
-rand = new Random().Next(100, 1000);
+Console.WriteLine($"Число: {rand}");
 
-Console.WriteLine(rand);
+while (temp > 0)
+{
+    temp = temp / 10;
+    numDigits++;
+    if (temp == 0) 
+        break;
+}
+Console.WriteLine($"Кол-во цифр в числе: {numDigits}");
 
-Console.WriteLine($"Вторая цифра {rand / 10 % 10}");
+if (numDigits < 3)
+{
+    Console.WriteLine("Третьей цифры нет");
+}
+
+else if (numDigits == 3)
+{
+    thirdDigit = rand % 10;
+    Console.WriteLine($"Третья цифра: {thirdDigit}");
+}
+
+else 
+{
+   thirdDigit = rand / (int)Math.Pow(10, numDigits-3) % 10;
+   Console.WriteLine($"Третья цифра: {thirdDigit}");
+}
 
